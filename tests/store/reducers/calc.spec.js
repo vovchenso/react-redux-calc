@@ -1,5 +1,6 @@
 const calcReducer = require('../../../src/store/reducers/calc').default;
 const Actions = require('../../../src/constants/actions');
+const Operation = require('../../../src/constants/operations');
 
 const initialState = {
     temp: null,
@@ -51,5 +52,39 @@ test('digit action value concat', () => {
             ...initialState,
             value: concat
         });
+    });
+});
+
+test('operation action invalid value', () => {
+    const cases = ['test', 10, ' ', '...', '*', '='];
+    cases.forEach(value => {
+        const result = calcReducer(initialState, { type: Actions.OPERATION, value });
+        expect(result).toBe(initialState);
+    });
+});
+
+test('operation action value plus', () => {
+    const result = calcReducer(initialState, { type: Actions.OPERATION, value: Operation.PLUS });
+    expect(result).toEqual({
+        value: '',
+        temp: 0,
+        operation: Operation.PLUS
+    });
+});
+
+test('operation action value minus', () => {
+    const result = calcReducer(initialState, { type: Actions.OPERATION, value: Operation.MINUS });
+    expect(result).toEqual({
+        value: '',
+        temp: 0,
+        operation: Operation.MINUS
+    });
+});
+
+test('eval action', () => {
+    const result = calcReducer(initialState, { type: Actions.EVAL });
+    expect(result).toEqual({
+        ...initialState,
+        value: ''
     });
 });
