@@ -23,7 +23,7 @@ const Calc = ({ value, temp, operation, pressed, action }) => (
 
 Calc.propTypes = {
     action: PropTypes.func.isRequired,
-    value: PropTypes.number,
+    value: PropTypes.string,
     temp: PropTypes.number,
     operation: PropTypes.string,
     pressed: PropTypes.string

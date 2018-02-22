@@ -3,7 +3,7 @@ const Actions = require('../../../src/constants/actions');
 
 const initialState = {
     temp: null,
-    value: 0,
+    value: '0',
     operation: ''
 };
 
@@ -35,7 +35,7 @@ test('digit action valid value', () => {
         const result = calcReducer(initialState, { type: Actions.DIGIT, value });
         expect(result).toEqual({
             ...initialState,
-            value: +value
+            value: value.toString()
         });
     });
 });
@@ -45,9 +45,8 @@ test('digit action value concat', () => {
     let concat = '';
     let state = Object.assign({}, initialState);
     cases.forEach(value => {
-        concat = +concat.toString().concat(value);
+        concat = concat.concat(value);
         state = calcReducer(state, { type: Actions.DIGIT, value });
-        console.log(state, concat, value);
         expect(state).toEqual({
             ...initialState,
             value: concat

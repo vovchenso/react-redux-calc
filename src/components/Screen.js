@@ -13,7 +13,7 @@ const Screen = ({ value, temp, operation }) => (
 );
 
 Screen.propTypes = {
-    value: PropTypes.number,
+    value: PropTypes.string,
     temp: PropTypes.number,
     operation: PropTypes.string
 };

@@ -5,7 +5,7 @@ import * as Validator from '../utils/validators';
 
 const initialState = {
     temp: null,
-    value: 0,
+    value: '0',
     operation: ''
 };
 
@@ -25,10 +25,14 @@ const calculate = (origin, operation, value) => {
 
 const setDigit = (state, value) => {
     if (Validator.isValidDigit(value)) {
+        const newValue = (state.value === '0')
+            ? value.toString()
+            : state.value.concat(value);
+
         return {
             ...state,
-            value: state.value ? +state.value.toString().concat(value) : +value
-        }
+            value: newValue
+        };
     }
 
     return state;
@@ -39,9 +43,9 @@ const setOperation = (state, operation) => {
         const { temp, value } = state;
         return {
             operation,
-            temp: temp ? calculate(temp, state.operation, value) : value,
-            value: null
-        }
+            temp: temp ? calculate(temp, state.operation, value) : +value,
+            value: ''
+        };
     }
 
     return state;
@@ -50,8 +54,8 @@ const setOperation = (state, operation) => {
 const setResult = state => {
     return {
         ...initialState,
-        value: calculate(state.temp, state.operation, state.value)
-    }
+        value: calculate(state.temp, state.operation, state.value).toString()
+    };
 };
 
 export default function calc(state = initialState, action) {
@@ -63,10 +67,6 @@ export default function calc(state = initialState, action) {
 
         case Actions.EVAL:
             return setResult(state);
-            // return {
-            //     value: eval(state.result),
-            //     result: ''
-            // };
 
         case Actions.DIGIT:
             return setDigit(state, action.value);
