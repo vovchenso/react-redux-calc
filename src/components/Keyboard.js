@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Button from './Button';
 import * as Actions from '../constants/actions';
+import * as Operations from '../constants/operations';
 
 
 const Keyboard = ({ active, onClick }) => (
@@ -29,7 +30,7 @@ const Keyboard = ({ active, onClick }) => (
                 label="+"
                 active={ '+' === active }
                 type="operation"
-                onClick={ () => onClick(Actions.OPERATION, '+') }
+                onClick={ () => onClick(Actions.OPERATION, Operations.PLUS) }
             />
         </div>
 
@@ -53,7 +54,7 @@ const Keyboard = ({ active, onClick }) => (
                 label="-"
                 active={ '-' === active }
                 type="operation"
-                onClick={ () => onClick(Actions.OPERATION, '-') }
+                onClick={ () => onClick(Actions.OPERATION, Operations.MINUS) }
             />
         </div>
 
@@ -90,7 +91,7 @@ const Keyboard = ({ active, onClick }) => (
                     />
                     <Button
                         label="."
-                        active={ '-' === active }
+                        active={ '.' === active }
                         onClick={ () => onClick(Actions.DIGIT, '.') }
                     />
                 </div>

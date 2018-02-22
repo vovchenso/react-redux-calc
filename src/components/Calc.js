@@ -5,10 +5,14 @@ import Screen from './Screen';
 import Keyboard from './Keyboard';
 
 
-const Calc = ({ value, pressed, action }) => (
+const Calc = ({ value, temp, operation, pressed, action }) => (
 
     <main>
-        <Screen value={ value }/>
+        <Screen
+            value={ value }
+            temp={ temp }
+            operation={ operation }
+        />
         <Keyboard
             active={ pressed }
             onClick={ action }
@@ -19,7 +23,9 @@ const Calc = ({ value, pressed, action }) => (
 
 Calc.propTypes = {
     action: PropTypes.func.isRequired,
-    value: PropTypes.string,
+    value: PropTypes.number,
+    temp: PropTypes.number,
+    operation: PropTypes.string,
     pressed: PropTypes.string
 };
 

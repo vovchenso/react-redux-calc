@@ -2,8 +2,24 @@
 
 .screen {
     height: 50px;
-    font-size: 22px;
+    font-size: 26px;
     color: @colorWhite;
     text-align: right;
+    font-weight: bold;
+    position: relative;
     font-family: "Courier New";
+
+    .temp {
+        font-size: 18px;
+        min-height: 20px;
+        font-weight: normal;
+    }
+
+    span {
+        position: absolute;
+        top: 12px;
+        left: 4px;
+        font-size: 23px;
+        color: @colorYellow;
+    }
 }

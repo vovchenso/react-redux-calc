@@ -2,18 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const Screen = ({ value, current }) => (
+const Screen = ({ value, temp, operation }) => (
 
     <section className="screen">
+        <div className="temp">{ temp }</div>
         <div>{ value }</div>
-        <div>{ current }</div>
+        <span>{ operation }</span>
     </section>
 
 );
 
 Screen.propTypes = {
-    value: PropTypes.string,
-    current: PropTypes.string
+    value: PropTypes.number,
+    temp: PropTypes.number,
+    operation: PropTypes.string
 };
 
 export default Screen;
