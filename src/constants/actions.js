@@ -1,4 +1,4 @@
 export const DIGIT = 'DIGIT';
 export const OPERATION = 'OPERATION';
-export const CLEAR = 'CLEAR';
+export const RESET = 'RESET';
 export const EVAL = 'EVAL';

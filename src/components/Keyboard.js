@@ -80,8 +80,8 @@ const Keyboard = ({ active, onClick }) => (
                     <Button
                         label="AC"
                         active={ 'Backspace' === active }
-                        type="operation"
-                        onClick={ () => onClick(Actions.CLEAR) }
+                        type="reset"
+                        onClick={ () => onClick(Actions.RESET) }
                     />
                     <Button
                         label="0"

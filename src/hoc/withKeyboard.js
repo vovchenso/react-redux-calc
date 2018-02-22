@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import * as Actions from '../constants/actions';
+import * as Validator from '../store/utils/validators';
+
 
 const withKeyboard = WrappedComponent => {
 
@@ -22,16 +24,16 @@ const withKeyboard = WrappedComponent => {
             }
 
             if (key === 'Backspace') {
-                action(Actions.CLEAR);
+                action(Actions.RESET);
                 this.setState({ key });
             }
 
-            if (/[\+\-]{1}/.test(key)) {
+            if (Validator.isValidOperation(key)) {
                 action(Actions.OPERATION, key);
                 this.setState({ key });
             }
 
-            if (/[\d\.]{1}/.test(key)) {
+            if (Validator.isValidDigit(key)) {
                 action(Actions.DIGIT, key);
                 this.setState({ key });
             }

@@ -12,7 +12,7 @@ export default function calc(state = initialState, action) {
 
     switch(action.type) {
 
-        case Actions.CLEAR:
+        case Actions.RESET:
             return initialState;
 
         case Actions.EVAL:
@@ -25,6 +25,7 @@ export default function calc(state = initialState, action) {
         case Actions.OPERATION:
             return {
                 ...state,
+                value: state.value.concat(action.value),
                 result: state.result.concat(action.value)
             };
 
