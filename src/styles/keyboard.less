@@ -1,0 +1,42 @@
+@import "variables";
+
+.keyboard {
+
+    .flex {
+        display: flex;
+    }
+
+    button {
+        background: @colorBlack;
+        color: @colorGreen;
+        font-weight: bold;
+        width: 50px;
+        padding: 10px;
+        border: 1px solid @colorGreen;
+
+        &:hover {
+            background: rgba(0, 255, 0, 0.3);
+        }
+
+        &:active,
+        &.active {
+            background: @colorGreen;
+            color: @colorBlack;
+        }
+
+        &.operation {
+            color: @colorYellow;
+
+            &:hover {
+                background: rgba(255, 255, 0, 0.3);
+            }
+
+            &:active,
+            &.active {
+                background: @colorYellow;
+                color: @colorBlack;
+            }
+
+        }
+    }
+}
