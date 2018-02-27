@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import withKeyboard from '../hoc/withKeyboard';
 
+import withKeyboard from '../hoc/withKeyboard';
 import Calc from '../components/Calc';
 
 

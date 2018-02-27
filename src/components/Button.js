@@ -9,7 +9,6 @@ const Button = ({ label, onClick, type, active }) => {
         <button className={ classNames.join(' ') } onClick={ onClick }>
             { label }
         </button>
-
     );
 };
 

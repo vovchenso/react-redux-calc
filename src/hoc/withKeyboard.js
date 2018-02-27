@@ -43,10 +43,6 @@ const withKeyboard = WrappedComponent => {
             this.setState({ key: null });
         };
 
-        constructor(props) {
-            super(props);
-        }
-
         componentDidMount() {
             window.addEventListener('keydown', this.handleKeyDown);
             window.addEventListener('keyup', this.handleKeyUp);
